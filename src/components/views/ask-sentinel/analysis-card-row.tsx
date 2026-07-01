@@ -8,8 +8,8 @@ export function AnalysisCardRow({ cards }: { cards: AnalysisCard[] }) {
         <div
           key={card.label}
           className={cn(
-            "flex flex-col gap-3 rounded-2xl p-4",
-            card.tone === "attention" ? "bg-red-50" : "bg-white",
+            "flex flex-col gap-3 rounded-2xl border bg-white p-4",
+            card.tone === "attention" ? "border-red-300" : "border-gray-200",
           )}
         >
           <div

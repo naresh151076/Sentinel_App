@@ -5,7 +5,7 @@ const FILTERS = ["All domains", "Last 30 days"] as const;
 
 export function MonitoringHeader() {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl bg-white p-6">
+    <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-gray-200 bg-white p-6">
       <div>
         <h1 className="mb-1 text-2xl font-bold text-gray-900">
           Governance Control Tower

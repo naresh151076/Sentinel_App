@@ -11,6 +11,11 @@ import {
 import type { EvidencePackBundle } from "@/models/conversation";
 
 // TODO: replace mock data with a real intake-understanding API once available.
+const SCENARIO_MESSAGE =
+  "I want to use EU and Singapore client data in a French application for risk modelling and management reporting.";
+
+const GENERIC_ACKNOWLEDGEMENT = "Got it, I've noted that.";
+
 const FIXED_ANALYSIS_BUNDLE: EvidencePackBundle = {
   understandingText: "Sentinel understood this as a",
   understandingBoldFragment: "Data Usage + Cross-border Access",
@@ -72,19 +77,14 @@ const FIXED_ANALYSIS_BUNDLE: EvidencePackBundle = {
   },
 };
 
-const GENERIC_ACKNOWLEDGEMENT = "Got it, I've noted that.";
-
-const SCENARIO_MESSAGE =
-  "I want to use EU and Singapore client data in a French application for risk modelling and management reporting.";
-
-export function getFixedAnalysisBundle(): EvidencePackBundle {
-  return FIXED_ANALYSIS_BUNDLE;
+export function getScenarioMessage(): string {
+  return SCENARIO_MESSAGE;
 }
 
 export function getGenericAcknowledgement(): string {
   return GENERIC_ACKNOWLEDGEMENT;
 }
 
-export function getScenarioMessage(): string {
-  return SCENARIO_MESSAGE;
+export function getFixedAnalysisBundle(): EvidencePackBundle {
+  return FIXED_ANALYSIS_BUNDLE;
 }

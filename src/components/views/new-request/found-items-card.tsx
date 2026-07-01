@@ -2,7 +2,7 @@ import type { NewRequestDraft } from "@/models/new-request";
 
 export function FoundItemsCard({ draft }: { draft: NewRequestDraft }) {
   return (
-    <div className="rounded-2xl bg-white p-6">
+    <div className="rounded-2xl border border-gray-200 bg-white p-6">
       <h2 className="mb-4 text-lg font-bold text-gray-900">
         What Sentinel found
       </h2>

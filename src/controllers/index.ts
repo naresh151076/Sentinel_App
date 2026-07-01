@@ -3,4 +3,8 @@ export * from "@/controllers/patterns.controller";
 export * from "@/controllers/user.controller";
 export * from "@/controllers/governance.controller";
 export * from "@/controllers/conversation.controller";
+export * from "@/controllers/interpreted-request.controller";
 export * from "@/controllers/new-request.controller";
+export * from "@/controllers/monitoring.controller";
+export * from "@/controllers/my-requests.controller";
+export * from "@/controllers/assessment.controller";

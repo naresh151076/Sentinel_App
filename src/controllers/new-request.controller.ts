@@ -19,7 +19,7 @@ const NEW_REQUEST_DRAFT: NewRequestDraft = {
   tags: [
     { icon: Database, label: "Data usage" },
     { icon: Globe, label: "Cross-border access" },
-    { icon: BarChart3, label: "Client analytics" },
+    { icon: BarChart3, label: "Risk & reporting" },
   ],
   confidencePercent: 88,
   confirmationCount: 1,
@@ -39,13 +39,14 @@ const NEW_REQUEST_DRAFT: NewRequestDraft = {
     {
       icon: TrendingUp,
       label: "Typical route",
-      value: "Pattern fit review, first-cut risk assessment, DUA review",
+      value:
+        "Pattern fit review, cross-border transfer check, first-cut risk assessment, DUA review",
     },
   ],
   confirmationQuestion:
-    "Will this data be used only for analytics and reporting, or also to train an AI model?",
+    "Will this data be used only for risk modelling and management reporting, or also to train an AI model?",
   confirmationOptions: [
-    { icon: BarChart3, label: "Analytics & reporting only" },
+    { icon: BarChart3, label: "Risk modelling & reporting only" },
     { icon: Cpu, label: "Includes AI model training" },
   ],
   evidenceItems: [

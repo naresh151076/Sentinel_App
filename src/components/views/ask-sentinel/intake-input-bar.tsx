@@ -29,7 +29,7 @@ export function IntakeInputBar({
   return (
     <form
       className={cn(
-        "flex items-center gap-3 rounded-2xl bg-white p-2",
+        "flex items-center gap-3 rounded-2xl border border-gray-200 bg-white p-2 shadow-sm",
         variant === "centered" && "mb-12",
       )}
       onSubmit={handleSubmit}
@@ -51,10 +51,22 @@ export function IntakeInputBar({
       <button
         type="submit"
         disabled={!value.trim()}
-        className="rounded-xl bg-brand-red p-3 text-white transition-colors hover:bg-red-700 disabled:opacity-40 disabled:hover:bg-brand-red"
-        aria-label="Send"
+        aria-label="Ask Sentinel"
+        className={cn(
+          "flex items-center justify-center text-white transition-colors disabled:opacity-40 disabled:hover:bg-brand-red",
+          variant === "centered"
+            ? "gap-2 rounded-full bg-brand-red px-5 py-3 text-sm font-bold hover:bg-red-700"
+            : "rounded-xl bg-brand-red p-3 hover:bg-red-700",
+        )}
       >
-        <Send className="h-5 w-5" />
+        {variant === "centered" ? (
+          <>
+            Ask Sentinel
+            <Send className="h-4 w-4" />
+          </>
+        ) : (
+          <Send className="h-5 w-5" />
+        )}
       </button>
     </form>
   );

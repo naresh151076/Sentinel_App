@@ -33,7 +33,7 @@ export function AskSentinelWorkspace() {
 
   return (
     <main className="flex min-w-0 flex-1 flex-col overflow-hidden">
-      <div className="flex h-full flex-col rounded-3xl bg-surface-main p-12">
+      <div className="flex h-full flex-col rounded-3xl border border-gray-200 bg-surface-main p-12">
         {messages.length === 0 ? (
           <AskSentinelHero
             draft={draft}

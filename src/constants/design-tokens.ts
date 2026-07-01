@@ -7,6 +7,7 @@ export const COLORS = {
   surfaceMain: "#F9F9F9",
   surfaceContainer: "#FFFFFF",
   surfaceLow: "#F3F3F4",
+  surfaceChrome: "#E5E7EB",
 } as const;
 
 export const TYPOGRAPHY = {

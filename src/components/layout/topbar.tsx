@@ -11,7 +11,7 @@ export function Topbar() {
   const pageTitle = getPageTitle(pathname);
 
   return (
-    <header className="flex h-16 shrink-0 items-center justify-between bg-surface-low px-8">
+    <header className="flex h-16 shrink-0 items-center justify-between bg-surface-container px-8">
       <div className="flex items-center text-sm text-gray-500">
         <span>{WORKSPACE_LABEL}</span>
         <span className="mx-2">/</span>

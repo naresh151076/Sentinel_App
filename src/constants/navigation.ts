@@ -2,8 +2,8 @@ import {
   Activity,
   ClipboardCheck,
   FileText,
+  Home,
   LayoutTemplate,
-  MessageSquare,
   Plus,
   ShieldCheck,
   BarChart3,
@@ -18,9 +18,9 @@ export const NAV_GROUP_LABELS: Record<NavGroup, string> = {
 
 export const NAV_ITEMS: NavItem[] = [
   {
-    label: "Ask Sentinel",
+    label: "Home",
     href: ROUTES.home,
-    icon: MessageSquare,
+    icon: Home,
     group: "workspace",
   },
   {

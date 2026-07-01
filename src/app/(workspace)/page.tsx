@@ -3,7 +3,7 @@ import { AskSentinelWorkspace } from "@/components/views/ask-sentinel/ask-sentin
 
 export default function AskSentinelPage() {
   return (
-    <div className="flex flex-1 gap-8 overflow-hidden p-8">
+    <div className="flex flex-1 gap-8 overflow-hidden bg-surface-container p-8">
       <AskSentinelWorkspace />
       <AskSentinelRightPanel />
     </div>
