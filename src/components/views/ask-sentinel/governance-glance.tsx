@@ -5,11 +5,11 @@ export function GovernanceGlance() {
   const stats = getGovernanceStats();
 
   return (
-    <div className="mb-6">
-      <h2 className="mb-3 text-lg font-bold text-gray-900">
+    <div className="mb-8">
+      <h2 className="mb-4 text-lg font-bold text-gray-900">
         Governance at a glance
       </h2>
-      <div className="grid grid-cols-2 gap-2.5">
+      <div className="grid grid-cols-2 gap-3">
         {stats.map((stat) => (
           <StatCard key={stat.id} stat={stat} />
         ))}

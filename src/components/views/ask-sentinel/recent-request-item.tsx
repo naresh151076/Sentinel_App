@@ -13,21 +13,21 @@ export function RecentRequestListItem({
   return (
     <Link
       href={item.href}
-      className="flex items-start gap-4 p-4 transition-colors hover:bg-gray-50"
+      className="flex items-center gap-4 p-4 transition-colors hover:bg-gray-50"
     >
-      <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gray-100">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-100">
         <Icon className="h-4 w-4 text-gray-600" />
       </div>
       <div className="min-w-0 flex-1">
-        <div className="truncate text-sm font-bold text-gray-900">
+        <div className="truncate text-base font-bold text-gray-900">
           {item.title}
         </div>
-        <div className="mb-2 truncate text-xs text-gray-500">
-          {item.subtitle}
-        </div>
-        <StatusBadge label={item.badge.label} variant={item.badge.variant} />
+        <div className="truncate text-sm text-gray-500">{item.subtitle}</div>
       </div>
-      <ChevronRight className="mt-2 h-4 w-4 shrink-0 text-gray-400" />
+      <div className="flex shrink-0 items-center gap-2">
+        <StatusBadge label={item.badge.label} variant={item.badge.variant} />
+        <ChevronRight className="h-4 w-4 shrink-0 text-gray-400" />
+      </div>
     </Link>
   );
 }

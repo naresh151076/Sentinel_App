@@ -1,15 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import type { FormEvent } from "react";
 import { Paperclip, Send } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-export function IntakeInputBar() {
-  const [value, setValue] = useState("");
+interface IntakeInputBarProps {
+  value: string;
+  onValueChange: (value: string) => void;
+  onSubmit: (value: string) => void;
+  placeholder: string;
+  variant?: "centered" | "pinned";
+}
+
+export function IntakeInputBar({
+  value,
+  onValueChange,
+  onSubmit,
+  placeholder,
+  variant = "centered",
+}: IntakeInputBarProps) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const trimmed = value.trim();
+    if (!trimmed) return;
+    onSubmit(trimmed);
+  }
 
   return (
     <form
-      className="mb-12 flex items-center gap-3 rounded-2xl border border-gray-200 bg-white p-2 shadow-sm"
-      onSubmit={(event) => event.preventDefault()}
+      className={cn(
+        "flex items-center gap-3 rounded-2xl border border-gray-200 bg-white p-2 shadow-sm",
+        variant === "centered" && "mb-12",
+      )}
+      onSubmit={handleSubmit}
     >
       <button
         type="button"
@@ -20,14 +43,15 @@ export function IntakeInputBar() {
       </button>
       <input
         className="flex-1 border-none bg-transparent py-3 text-base placeholder-gray-400 outline-none focus:ring-0"
-        placeholder="e.g. I want to use customer purchase data for a loyalty programme in France"
+        placeholder={placeholder}
         type="text"
         value={value}
-        onChange={(event) => setValue(event.target.value)}
+        onChange={(event) => onValueChange(event.target.value)}
       />
       <button
         type="submit"
-        className="rounded-xl bg-brand-red p-3 text-white transition-colors hover:bg-red-700"
+        disabled={!value.trim()}
+        className="rounded-xl bg-brand-red p-3 text-white transition-colors hover:bg-red-700 disabled:opacity-40 disabled:hover:bg-brand-red"
         aria-label="Send"
       >
         <Send className="h-5 w-5" />

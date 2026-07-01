@@ -12,7 +12,7 @@ export function RecentRequests() {
         <h2 className="text-lg font-bold text-gray-900">Recent requests</h2>
         <Link
           href={ROUTES.myRequests}
-          className="text-xs font-bold text-brand-red hover:underline"
+          className="text-sm font-bold text-brand-red hover:underline"
         >
           View all
         </Link>
