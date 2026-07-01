@@ -10,7 +10,8 @@ export const COLORS = {
 } as const;
 
 export const TYPOGRAPHY = {
-  fontFamily: "Montserrat, sans-serif",
+  headingFontFamily: "Montserrat, sans-serif",
+  bodyFontFamily: "'Source Sans 3', Arial, sans-serif",
   headingTracking: "-0.02em",
   bodyLineHeight: 1.5,
 } as const;

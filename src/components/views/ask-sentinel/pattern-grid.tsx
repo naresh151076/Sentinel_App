@@ -9,7 +9,7 @@ export function PatternGrid() {
       <div className="mb-4 font-bold text-gray-900">
         Start with a common pattern
       </div>
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-7 gap-3">
         {patterns.map((pattern) => (
           <PatternCard key={pattern.id} pattern={pattern} />
         ))}

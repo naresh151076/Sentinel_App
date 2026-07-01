@@ -5,7 +5,7 @@ import { RecentRequests } from "@/components/views/ask-sentinel/recent-requests"
 
 export function AskSentinelRightPanel() {
   return (
-    <aside className="scrollbar-hide w-[340px] shrink-0 overflow-y-auto border-l border-gray-200 bg-surface-low px-6 py-6 pb-20">
+    <aside className="scrollbar-hide w-[340px] shrink-0 overflow-y-auto">
       <GovernanceGlance />
       <RecentRequests />
       <AttentionRequired />
