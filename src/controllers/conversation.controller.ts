@@ -74,10 +74,17 @@ const FIXED_ANALYSIS_BUNDLE: EvidencePackBundle = {
 
 const GENERIC_ACKNOWLEDGEMENT = "Got it, I've noted that.";
 
+const SCENARIO_MESSAGE =
+  "I want to use EU and Singapore client data in a French application for risk modelling and management reporting.";
+
 export function getFixedAnalysisBundle(): EvidencePackBundle {
   return FIXED_ANALYSIS_BUNDLE;
 }
 
 export function getGenericAcknowledgement(): string {
   return GENERIC_ACKNOWLEDGEMENT;
+}
+
+export function getScenarioMessage(): string {
+  return SCENARIO_MESSAGE;
 }

@@ -22,13 +22,13 @@ export function AnalysisCardRow({ cards }: { cards: AnalysisCard[] }) {
           >
             <card.icon className="h-4 w-4" />
           </div>
-          <div className="text-xs font-medium text-gray-500">
+          <div className="text-sm font-medium text-gray-500">
             {card.label}
           </div>
-          <div className="text-sm font-bold leading-snug text-gray-900">
+          <div className="text-base font-bold leading-snug text-gray-900">
             {card.title}
           </div>
-          <div className="text-xs leading-snug text-gray-500">
+          <div className="text-sm leading-snug text-gray-500">
             {card.description}
           </div>
         </div>

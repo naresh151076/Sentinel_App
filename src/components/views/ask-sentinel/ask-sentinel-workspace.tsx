@@ -3,7 +3,10 @@
 import { useState } from "react";
 import { AskSentinelHero } from "@/components/views/ask-sentinel/ask-sentinel-hero";
 import { ConversationView } from "@/components/views/ask-sentinel/conversation-view";
-import { getGenericAcknowledgement } from "@/controllers/conversation.controller";
+import {
+  getGenericAcknowledgement,
+  getScenarioMessage,
+} from "@/controllers/conversation.controller";
 import type { ChatMessage } from "@/models/conversation";
 
 export function AskSentinelWorkspace() {
@@ -12,9 +15,10 @@ export function AskSentinelWorkspace() {
 
   function handleSubmit(text: string) {
     const isFirstMessage = messages.length === 0;
+    const displayedText = isFirstMessage ? getScenarioMessage() : text;
     const next: ChatMessage[] = [
       ...messages,
-      { id: crypto.randomUUID(), role: "user", text },
+      { id: crypto.randomUUID(), role: "user", text: displayedText },
     ];
     if (!isFirstMessage) {
       next.push({

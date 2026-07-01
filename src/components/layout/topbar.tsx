@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { Bell, HelpCircle } from "lucide-react";
 import { WORKSPACE_LABEL } from "@/constants/copy";
 import { getPageTitle } from "@/controllers/navigation.controller";
+import { MonitoringStatus } from "@/components/layout/monitoring-status";
 
 export function Topbar() {
   const pathname = usePathname();
@@ -17,6 +18,7 @@ export function Topbar() {
         <span className="font-bold text-gray-900">{pageTitle}</span>
       </div>
       <div className="flex items-center gap-4 text-gray-600">
+        <MonitoringStatus />
         <button type="button" className="hover:text-black" aria-label="Notifications">
           <Bell className="h-5 w-5" />
         </button>

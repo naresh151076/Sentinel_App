@@ -11,10 +11,10 @@ export function PatternCard({ pattern }: { pattern: UsagePattern }) {
       <div className="mb-3 flex h-10 w-10 items-center justify-center text-gray-700">
         <Icon className="h-6 w-6" />
       </div>
-      <div className="mb-1.5 text-sm font-bold leading-snug text-gray-900">
+      <div className="mb-1.5 text-base font-bold leading-snug text-gray-900">
         {pattern.label}
       </div>
-      <div className="text-xs leading-snug text-gray-500">
+      <div className="text-sm leading-snug text-gray-500">
         {pattern.description}
       </div>
     </button>

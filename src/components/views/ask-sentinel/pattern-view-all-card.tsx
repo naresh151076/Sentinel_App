@@ -11,7 +11,7 @@ export function PatternViewAllCard() {
       <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-white text-brand-red">
         <ArrowRight className="h-5 w-5" />
       </div>
-      <div className="text-sm font-bold text-brand-red">View all patterns</div>
+      <div className="text-base font-bold text-brand-red">View all patterns</div>
     </Link>
   );
 }

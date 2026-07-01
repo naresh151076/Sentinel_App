@@ -8,7 +8,7 @@ export function ChatBubble({ message }: { message: ChatMessage }) {
     <div className={cn("flex", isUser ? "justify-end" : "justify-start")}>
       <div
         className={cn(
-          "max-w-[75%] rounded-2xl px-5 py-3 text-sm leading-relaxed break-words",
+          "max-w-[75%] rounded-2xl px-5 py-3 text-base leading-relaxed break-words",
           isUser
             ? "bg-foreground text-background"
             : "border border-gray-100 bg-white text-gray-700 shadow-sm",

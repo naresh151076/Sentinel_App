@@ -24,12 +24,15 @@ export function ConversationView({
   const bundle = getFixedAnalysisBundle();
 
   return (
-    <div className="mx-auto flex h-full w-full max-w-3xl flex-1 flex-col overflow-hidden">
+    <div className="flex h-full w-full flex-1 flex-col overflow-hidden">
       <div className="mb-6 flex shrink-0 items-center justify-between">
-        <span className="text-sm font-bold text-gray-900">
+        <span className="text-base font-bold text-gray-900">
           Conversation-led governance intake
         </span>
-        <Badge variant="outline" className="gap-1.5 text-gray-600">
+        <Badge
+          variant="outline"
+          className="h-7 gap-1.5 px-3 text-sm text-gray-600"
+        >
           <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
           Evidence pack building in real time
         </Badge>
