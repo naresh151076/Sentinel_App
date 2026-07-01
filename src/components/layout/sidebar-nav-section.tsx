@@ -1,3 +1,5 @@
+"use client";
+
 import { SidebarNavItem } from "@/components/layout/sidebar-nav-item";
 import type { NavItem } from "@/models/navigation";
 

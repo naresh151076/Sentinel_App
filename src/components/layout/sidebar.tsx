@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ROUTES } from "@/constants/routes";
 import { getNavGroups } from "@/controllers/navigation.controller";

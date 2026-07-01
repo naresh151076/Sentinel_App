@@ -1,0 +1,41 @@
+import Link from "next/link";
+import { AlertTriangle, ChevronRight } from "lucide-react";
+import { getAttentionItems } from "@/controllers/governance.controller";
+
+export function AttentionRequired() {
+  const items = getAttentionItems();
+
+  if (items.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="mb-8">
+      <h2 className="mb-4 text-lg font-bold text-gray-900">
+        Attention required
+      </h2>
+      <div className="rounded-xl border border-gray-100 bg-white shadow-sm">
+        {items.map((item) => (
+          <Link
+            key={item.id}
+            href={item.href}
+            className="flex items-start gap-4 rounded-xl p-4 transition-colors hover:bg-gray-50"
+          >
+            <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-50">
+              <AlertTriangle className="h-4 w-4 text-brand-red" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="mb-1 text-sm font-bold leading-tight text-gray-900">
+                {item.title}
+              </div>
+              <div className="text-xs leading-snug text-gray-500">
+                {item.description}
+              </div>
+            </div>
+            <ChevronRight className="mt-2 h-4 w-4 shrink-0 text-gray-400" />
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
