@@ -11,7 +11,7 @@ export function ChatBubble({ message }: { message: ChatMessage }) {
           "max-w-[75%] rounded-2xl px-5 py-3 text-base leading-relaxed break-words",
           isUser
             ? "bg-foreground text-background"
-            : "border border-gray-100 bg-white text-gray-700 shadow-sm",
+            : "bg-white text-gray-700",
         )}
       >
         {message.text}

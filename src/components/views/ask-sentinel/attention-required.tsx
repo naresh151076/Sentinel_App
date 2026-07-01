@@ -15,7 +15,7 @@ export function AttentionRequired() {
         <Link
           key={item.id}
           href={item.href}
-          className="flex items-start gap-4 rounded-xl border border-red-200 bg-red-50/60 p-4 transition-colors hover:bg-red-50"
+          className="flex items-start gap-4 rounded-xl bg-red-50 p-4 transition-colors hover:bg-red-100"
         >
           <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white">
             <AlertTriangle className="h-4 w-4 text-brand-red" />

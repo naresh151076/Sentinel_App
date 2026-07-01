@@ -5,7 +5,7 @@ import { StatSparkline } from "@/components/views/monitoring/stat-sparkline";
 
 export function MonitoringStatCard({ stat }: { stat: MonitoringStat }) {
   return (
-    <div className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
+    <div className="rounded-xl bg-white p-5">
       <div
         className={cn(
           "text-3xl font-bold text-gray-900",

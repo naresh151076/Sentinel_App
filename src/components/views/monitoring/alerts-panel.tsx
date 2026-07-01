@@ -15,7 +15,7 @@ export function AlertsPanel() {
   const alerts = getMonitoringAlerts();
 
   return (
-    <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+    <div className="rounded-xl bg-white p-6">
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-lg font-bold text-gray-900">
           Alerts requiring attention
@@ -27,11 +27,11 @@ export function AlertsPanel() {
           {alerts.length} new
         </Badge>
       </div>
-      <div className="flex flex-col divide-y divide-gray-100">
+      <div className="flex flex-col gap-1">
         {alerts.map((alert) => {
           const Icon = alert.icon;
           return (
-            <div key={alert.id} className="flex items-center gap-4 py-4 first:pt-0 last:pb-0">
+            <div key={alert.id} className="flex items-center gap-4 rounded-lg bg-gray-50 px-3 py-4">
               <div
                 className={cn(
                   "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border",

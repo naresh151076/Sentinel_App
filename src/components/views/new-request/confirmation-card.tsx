@@ -3,7 +3,7 @@ import type { NewRequestDraft } from "@/models/new-request";
 
 export function ConfirmationCard({ draft }: { draft: NewRequestDraft }) {
   return (
-    <div className="flex flex-col rounded-2xl border border-red-300 bg-white p-6 shadow-sm">
+    <div className="flex flex-col rounded-2xl bg-red-50 p-6">
       <div className="mb-4 flex items-start justify-between gap-3">
         <h2 className="text-lg font-bold text-gray-900">
           Need your confirmation
@@ -20,7 +20,7 @@ export function ConfirmationCard({ draft }: { draft: NewRequestDraft }) {
           <button
             key={option.label}
             type="button"
-            className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 text-left transition-colors hover:border-gray-300 hover:bg-gray-50"
+            className="flex items-center gap-3 rounded-xl bg-white p-4 text-left transition-colors hover:bg-gray-50"
           >
             <option.icon className="h-5 w-5 shrink-0 text-gray-700" />
             <span className="text-sm font-medium text-gray-900">

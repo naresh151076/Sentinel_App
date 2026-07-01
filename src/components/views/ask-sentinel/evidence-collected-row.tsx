@@ -10,7 +10,7 @@ export function EvidenceCollectedRow({ items }: { items: EvidenceItem[] }) {
         {items.map((item) => (
           <div
             key={item.id}
-            className="flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm"
+            className="flex items-center gap-3 rounded-xl bg-white p-4"
           >
             <item.icon className="h-5 w-5 shrink-0 text-gray-700" />
             <div className="min-w-0">

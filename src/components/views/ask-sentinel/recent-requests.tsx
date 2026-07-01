@@ -17,7 +17,7 @@ export function RecentRequests() {
           View all
         </Link>
       </div>
-      <div className="flex flex-col divide-y divide-gray-100 rounded-xl border border-gray-100 bg-white shadow-sm">
+      <div className="flex flex-col gap-1 rounded-xl bg-white">
         {requests.map((item) => (
           <RecentRequestListItem key={item.id} item={item} />
         ))}

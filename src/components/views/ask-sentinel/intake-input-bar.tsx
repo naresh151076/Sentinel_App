@@ -29,7 +29,7 @@ export function IntakeInputBar({
   return (
     <form
       className={cn(
-        "flex items-center gap-3 rounded-2xl border border-gray-200 bg-white p-2 shadow-sm",
+        "flex items-center gap-3 rounded-2xl bg-white p-2",
         variant === "centered" && "mb-12",
       )}
       onSubmit={handleSubmit}

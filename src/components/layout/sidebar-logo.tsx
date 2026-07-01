@@ -3,7 +3,7 @@ import { ROUTES } from "@/constants/routes";
 
 export function SidebarLogo() {
   return (
-    <div className="flex h-16 shrink-0 items-center border-b border-gray-100 px-6">
+    <div className="flex h-16 shrink-0 items-center px-6">
       <Link href={ROUTES.home} className="flex items-center gap-3">
         {/* eslint-disable-next-line @next/next/no-img-element -- static brand asset, no next/image optimization needed */}
         <img

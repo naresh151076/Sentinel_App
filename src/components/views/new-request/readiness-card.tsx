@@ -3,7 +3,7 @@ import type { NewRequestDraft } from "@/models/new-request";
 
 export function ReadinessCard({ draft }: { draft: NewRequestDraft }) {
   return (
-    <div className="flex flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+    <div className="flex flex-col rounded-2xl bg-white p-6">
       <h2 className="mb-4 text-lg font-bold text-gray-900">Readiness</h2>
       <div className="mb-1 flex items-baseline gap-2">
         <span className="text-4xl font-bold text-gray-900">

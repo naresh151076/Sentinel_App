@@ -6,7 +6,7 @@ export function PatternCard({ pattern }: { pattern: UsagePattern }) {
   return (
     <button
       type="button"
-      className="flex min-h-40 flex-col items-center rounded-2xl border border-gray-200 bg-white p-5 text-center transition-shadow hover:border-gray-300 hover:shadow-md"
+      className="flex min-h-40 flex-col items-center rounded-2xl bg-white p-5 text-center transition-colors hover:bg-gray-50"
     >
       <div className="mb-3 flex h-10 w-10 items-center justify-center text-gray-700">
         <Icon className="h-6 w-6" />

@@ -3,7 +3,7 @@ import type { GovernanceStat } from "@/models/governance";
 
 export function StatCard({ stat }: { stat: GovernanceStat }) {
   return (
-    <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
+    <div className="rounded-xl bg-white p-4">
       <div
         className={cn(
           "mb-1 text-4xl font-bold",

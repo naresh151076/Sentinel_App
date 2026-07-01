@@ -5,7 +5,7 @@ export function SidebarFooter() {
   const user = getCurrentUser();
 
   return (
-    <div className="flex shrink-0 items-center justify-between border-t border-gray-100 bg-white px-4 py-4">
+    <div className="flex shrink-0 items-center justify-between bg-gray-50 px-4 py-4">
       <div className="flex items-center gap-3">
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-gray-100 text-sm font-bold text-gray-600">
           {user.initials}

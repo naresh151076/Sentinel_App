@@ -3,7 +3,7 @@ import type { NewRequestDraft } from "@/models/new-request";
 
 export function RequestSummaryCard({ draft }: { draft: NewRequestDraft }) {
   return (
-    <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+    <div className="rounded-2xl bg-white p-6">
       <h2 className="mb-4 text-lg font-bold text-gray-900">
         Request summary
       </h2>

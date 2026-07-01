@@ -13,7 +13,7 @@ export default function NewRequestPage() {
   return (
     <div className="flex flex-1 gap-8 overflow-hidden p-8">
       <main className="flex min-w-0 flex-1 flex-col overflow-y-auto">
-        <div className="flex flex-col gap-8 rounded-3xl border border-gray-100 bg-surface-main p-12 shadow-sm">
+        <div className="flex flex-col gap-8 rounded-3xl bg-surface-main p-12">
           <div>
             <h1 className="mb-2 text-4xl font-bold tracking-tight text-gray-900">
               New request

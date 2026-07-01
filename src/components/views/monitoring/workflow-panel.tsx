@@ -6,7 +6,7 @@ export function WorkflowPanel() {
   const steps = getMonitoringWorkflowSteps();
 
   return (
-    <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+    <div className="rounded-xl bg-white p-6">
       <h2 className="mb-5 text-xs font-bold tracking-wide text-gray-400 uppercase">
         Continuous monitoring workflow
       </h2>
