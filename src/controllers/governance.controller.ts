@@ -1,4 +1,4 @@
-import { Cloud, Cpu, Globe } from "lucide-react";
+import { Cloud, Cpu, Folder, Globe, Users } from "lucide-react";
 import { ROUTES } from "@/constants/routes";
 import type {
   AttentionItem,
@@ -59,6 +59,22 @@ const RECENT_REQUESTS: RecentRequestItem[] = [
     icon: Cpu,
     badge: { label: "High risk route", variant: "dark" },
     href: `${ROUTES.myRequests}/model-training-assessment`,
+  },
+  {
+    id: "third-party-sharing-agreement",
+    title: "Third-party sharing agreement",
+    subtitle: "Sponsor sign-off pending",
+    icon: Users,
+    badge: { label: "Awaiting sponsor", variant: "critical" },
+    href: `${ROUTES.myRequests}/third-party-sharing-agreement`,
+  },
+  {
+    id: "data-retention-policy-refresh",
+    title: "Data retention policy refresh",
+    subtitle: "Auto-validated against catalog",
+    icon: Folder,
+    badge: { label: "Auto-approved", variant: "neutral" },
+    href: `${ROUTES.myRequests}/data-retention-policy-refresh`,
   },
 ];
 
