@@ -6,10 +6,10 @@ export function GovernanceGlance() {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-base font-bold text-gray-900">
+      <h2 className="text-xs font-bold uppercase tracking-wider text-gray-500">
         At a glance
       </h2>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {stats.map((stat) => (
           <StatCard key={stat.id} stat={stat} />
         ))}

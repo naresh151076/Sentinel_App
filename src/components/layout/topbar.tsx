@@ -53,11 +53,13 @@ export function Topbar() {
         </div>
       )}
       <div className="flex h-16 shrink-0 items-center justify-between px-8">
-        <div className="flex items-center text-sm text-gray-500">
-          <span>{WORKSPACE_LABEL}</span>
-          <span className="mx-2">/</span>
-          <span className="font-bold text-gray-900">{pageTitle}</span>
-        </div>
+        {pathname !== "/" && (
+          <div className="flex items-center text-sm text-gray-500">
+            <span>{WORKSPACE_LABEL}</span>
+            <span className="mx-2">/</span>
+            <span className="font-bold text-gray-900">{pageTitle}</span>
+          </div>
+        )}
         <div className="flex items-center gap-4 text-gray-600">
           <MonitoringStatus />
           <button type="button" className="hover:text-black" aria-label="Notifications">

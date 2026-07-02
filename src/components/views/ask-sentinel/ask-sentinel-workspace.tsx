@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AskSentinelHero } from "@/components/views/ask-sentinel/ask-sentinel-hero";
 import { ConversationView } from "@/components/views/ask-sentinel/conversation-view";
 import { GovernanceGlance } from "@/components/views/ask-sentinel/governance-glance";
@@ -8,11 +8,22 @@ import {
   getGenericAcknowledgement,
   getScenarioMessage,
 } from "@/controllers/conversation.controller";
+import { useActiveRequest } from "@/contexts/active-request.context";
 import type { ChatMessage } from "@/models/conversation";
 
 export function AskSentinelWorkspace() {
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [requestId, setRequestId] = useState<string | null>(null);
+  const { setActiveRequestId } = useActiveRequest();
+
+  useEffect(() => {
+    if (messages.length > 0 && !requestId) {
+      const newRequestId = crypto.randomUUID();
+      setRequestId(newRequestId);
+      setActiveRequestId(newRequestId);
+    }
+  }, [messages.length, requestId, setActiveRequestId]);
 
   function handleSubmit(text: string) {
     const isFirstMessage = messages.length === 0;
@@ -34,30 +45,35 @@ export function AskSentinelWorkspace() {
 
   return (
     <main className="flex min-w-0 flex-1 flex-col overflow-hidden">
-      <div className="flex h-full flex-col overflow-y-auto rounded-3xl border border-gray-100 bg-surface-main p-12 shadow-sm m-8">
-        {messages.length === 0 ? (
-          <div className="space-y-8">
-            <AskSentinelHero
-              draft={draft}
-              onDraftChange={setDraft}
-              onSubmit={handleSubmit}
-            />
-            <GovernanceGlance />
-          </div>
-        ) : (
-          <div className="flex h-full flex-col">
-            <ConversationView
-              messages={messages}
-              draft={draft}
-              onDraftChange={setDraft}
-              onSubmit={handleSubmit}
-            />
-            <div className="mt-8 space-y-8 border-t border-gray-100 pt-8">
+      {messages.length === 0 ? (
+        <div className="flex h-full flex-col overflow-y-auto gap-3 px-1 py-2 sm:gap-6 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
+          <div className="mx-auto w-full max-w-none sm:max-w-6xl">
+            <div className="rounded-lg bg-black px-4 pt-10 pb-3 shadow-sm sm:rounded-3xl sm:px-6 sm:pt-16 sm:pb-6 lg:px-10 lg:pt-20 lg:pb-10">
+              <AskSentinelHero
+                draft={draft}
+                onDraftChange={setDraft}
+                onSubmit={handleSubmit}
+              />
+            </div>
+            <div className="mt-3 sm:mt-6">
               <GovernanceGlance />
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="flex h-full flex-col overflow-hidden px-1 py-2 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
+          <div className="mx-auto w-full max-w-none sm:max-w-6xl h-full flex flex-col overflow-hidden">
+            <div className="flex h-full flex-col rounded-3xl border border-gray-100 bg-surface-main p-12 shadow-sm overflow-hidden">
+              <ConversationView
+                messages={messages}
+                draft={draft}
+                onDraftChange={setDraft}
+                onSubmit={handleSubmit}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

@@ -1,6 +1,5 @@
 import { IntakeInputBar } from "@/components/views/ask-sentinel/intake-input-bar";
 import { PatternGrid } from "@/components/views/ask-sentinel/pattern-grid";
-import { ComplianceMonitoringBanner } from "@/components/views/ask-sentinel/compliance-monitoring-banner";
 
 interface AskSentinelHeroProps {
   draft: string;
@@ -15,21 +14,26 @@ export function AskSentinelHero({
 }: AskSentinelHeroProps) {
   return (
     <div className="space-y-8">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-          How can Sentinel help you today?
+      <div className="space-y-2">
+        <h1 className="text-5xl font-bold tracking-tight text-white">
+          How can Sentinel
+        </h1>
+        <h1 className="text-5xl font-bold tracking-tight text-brand-red">
+          help you today?
         </h1>
       </div>
-      <div className="mx-auto max-w-3xl">
+      <div>
         <IntakeInputBar
           value={draft}
           onValueChange={onDraftChange}
           onSubmit={onSubmit}
           placeholder="e.g. I want to use customer purchase data for a loyalty programme in France"
-          variant="centered"
+          variant="dark"
         />
       </div>
-      <PatternGrid />
+      <div>
+        <PatternGrid />
+      </div>
     </div>
   );
 }

@@ -4,11 +4,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { isActiveRoute } from "@/controllers/navigation.controller";
+import { useActiveRequest } from "@/contexts/active-request.context";
 import type { NavItem } from "@/models/navigation";
 
 export function SidebarNavItem({ item }: { item: NavItem }) {
   const pathname = usePathname();
-  const active = isActiveRoute(pathname, item.href);
+  const { activeRequestId } = useActiveRequest();
+  let active = isActiveRoute(pathname, item.href);
+
+  // Deactivate "New request" nav item if there's an active request conversation
+  if (item.label === "New request" && activeRequestId) {
+    active = false;
+  }
+
   const Icon = item.icon;
 
   return (
