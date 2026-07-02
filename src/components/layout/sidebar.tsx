@@ -9,7 +9,7 @@ export function Sidebar() {
   const navGroups = getNavGroups();
 
   return (
-    <aside className="flex h-full w-64 shrink-0 flex-col bg-surface-chrome">
+    <aside className="flex h-full w-64 shrink-0 flex-col bg-surface-panel">
       <SidebarLogo />
       <div className="scrollbar-hide flex flex-1 flex-col gap-6 overflow-y-auto px-4 py-4">
         {navGroups.map((group) => (

@@ -61,8 +61,8 @@ export function NewRequestFlow({ initialMessage }: { initialMessage?: string }) 
   }
 
   return (
-    <div className="flex flex-1 gap-8 overflow-hidden bg-surface-container p-8">
-      <main className="flex min-w-0 flex-1 flex-col overflow-hidden">
+    <div className="flex flex-1 gap-6 overflow-hidden">
+      <main className="flex min-w-0 flex-1 flex-col overflow-hidden bg-surface-panel px-8 py-8">
         <div className="flex h-full flex-col gap-6 p-12">
           <div className="shrink-0">
             <h1 className="mb-2 text-4xl font-bold tracking-tight text-gray-900">
@@ -105,11 +105,13 @@ export function NewRequestFlow({ initialMessage }: { initialMessage?: string }) 
         </div>
       </main>
 
-      <InterpretedRequestPanel
-        interpreted={messages.length > 0 ? interpreted : null}
-        confirmed={confirmed}
-        onConfirm={() => setConfirmed(true)}
-      />
+      <div className="bg-surface-panel px-6 py-8">
+        <InterpretedRequestPanel
+          interpreted={messages.length > 0 ? interpreted : null}
+          confirmed={confirmed}
+          onConfirm={() => setConfirmed(true)}
+        />
+      </div>
     </div>
   );
 }

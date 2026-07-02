@@ -16,7 +16,7 @@ export function InterpretedRequestPanel({
   onConfirm,
 }: InterpretedRequestPanelProps) {
   return (
-    <aside className="scrollbar-hide w-[340px] shrink-0 overflow-y-auto rounded-3xl bg-surface-low p-6">
+    <aside className="scrollbar-hide w-[340px] shrink-0 overflow-y-auto rounded-3xl bg-surface-panel p-6">
       <div className="mb-4 text-xs font-bold uppercase tracking-widest text-gray-400">
         Interpreted request
       </div>
