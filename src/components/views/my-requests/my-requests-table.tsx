@@ -20,13 +20,13 @@ export function MyRequestsTable() {
       <Table>
         <TableHeader className="bg-gray-50">
           <TableRow className="hover:bg-gray-50">
-            <TableHead className="text-xs font-semibold text-gray-700 uppercase tracking-wider">REQUEST</TableHead>
-            <TableHead className="text-xs font-semibold text-gray-700 uppercase tracking-wider">DATASET</TableHead>
-            <TableHead className="text-xs font-semibold text-gray-700 uppercase tracking-wider">PATTERN</TableHead>
-            <TableHead className="text-xs font-semibold text-gray-700 uppercase tracking-wider">STATUS</TableHead>
-            <TableHead className="text-xs font-semibold text-gray-700 uppercase tracking-wider">RISK</TableHead>
-            <TableHead className="text-xs font-semibold text-gray-700 uppercase tracking-wider">AI CONFIDENCE</TableHead>
-            <TableHead className="text-xs font-semibold text-gray-700 uppercase tracking-wider">UPDATED</TableHead>
+            <TableHead className="text-sm font-bold text-gray-700 uppercase tracking-wider">REQUEST</TableHead>
+            <TableHead className="text-sm font-bold text-gray-700 uppercase tracking-wider">DATASET</TableHead>
+            <TableHead className="text-sm font-bold text-gray-700 uppercase tracking-wider">PATTERN</TableHead>
+            <TableHead className="text-sm font-bold text-gray-700 uppercase tracking-wider">STATUS</TableHead>
+            <TableHead className="text-sm font-bold text-gray-700 uppercase tracking-wider">RISK</TableHead>
+            <TableHead className="text-sm font-bold text-gray-700 uppercase tracking-wider">AI CONFIDENCE</TableHead>
+            <TableHead className="text-sm font-bold text-gray-700 uppercase tracking-wider">UPDATED</TableHead>
             <TableHead></TableHead>
           </TableRow>
         </TableHeader>

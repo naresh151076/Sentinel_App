@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { MyRequestsStats } from "@/components/views/my-requests/my-requests-stats";
-import { MyRequestsFilters } from "@/components/views/my-requests/my-requests-filters";
+import { MyRequestsFilters, MyRequestsFilterBar } from "@/components/views/my-requests/my-requests-filters";
 import { MyRequestsSearch } from "@/components/views/my-requests/my-requests-search";
 import { MyRequestsTable } from "@/components/views/my-requests/my-requests-table";
 
@@ -16,7 +16,7 @@ export function MyRequestsWorkspace() {
 
   return (
     <main className="flex flex-1 flex-col overflow-y-auto bg-surface-main">
-      <div className="flex-1 space-y-8 p-8">
+      <div className="flex-1 space-y-6 p-8">
         <div className="space-y-1">
           <h1 className="font-heading text-3xl font-bold text-gray-900">
             My Requests
@@ -26,12 +26,14 @@ export function MyRequestsWorkspace() {
           </p>
         </div>
 
-        <MyRequestsStats />
-
-        <div className="space-y-4 pt-2">
-          <MyRequestsFilters onFilterChange={handleFilterChange} />
+        <div className="flex items-center gap-4">
           <MyRequestsSearch />
+          <MyRequestsFilterBar />
         </div>
+
+        <MyRequestsFilters onFilterChange={handleFilterChange} />
+
+        <MyRequestsStats />
 
         <MyRequestsTable />
       </div>
