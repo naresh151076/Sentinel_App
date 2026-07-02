@@ -8,6 +8,8 @@ import {
   getGenericAcknowledgement,
   getScenarioMessage,
 } from "@/controllers/conversation.controller";
+import { findMatchingRequest } from "@/controllers/request-matching.controller";
+import { getRecentRequests } from "@/controllers/governance.controller";
 import { useActiveRequest } from "@/contexts/active-request.context";
 import type { ChatMessage } from "@/models/conversation";
 
@@ -19,9 +21,15 @@ export function AskSentinelWorkspace() {
 
   useEffect(() => {
     if (messages.length > 0 && !requestId) {
-      const newRequestId = crypto.randomUUID();
-      setRequestId(newRequestId);
-      setActiveRequestId(newRequestId);
+      // Find the most relevant request based on user's first message
+      const userMessage = messages.find((m) => m.role === "user")?.text || "";
+      const availableRequests = getRecentRequests();
+      const matchingRequest = findMatchingRequest(userMessage, availableRequests);
+
+      if (matchingRequest) {
+        setRequestId(matchingRequest.id);
+        setActiveRequestId(matchingRequest.id);
+      }
     }
   }, [messages.length, requestId, setActiveRequestId]);
 
