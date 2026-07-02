@@ -11,10 +11,19 @@ import {
 import type { EvidencePackBundle } from "@/models/conversation";
 
 // TODO: replace mock data with a real intake-understanding API once available.
-const FIXED_ANALYSIS_BUNDLE: EvidencePackBundle = {
+
+const SCENARIO_MESSAGE =
+  "I want to use EU and Singapore client data in a French application for risk modelling and management reporting.";
+
+// Clarifying question for the first turn
+const CLARIFYING_QUESTION =
+  "Will this data be used to train an AI model, or only for analytics and reporting?";
+
+// Initial understanding (after first user message)
+const INITIAL_UNDERSTANDING: Partial<EvidencePackBundle> = {
   understandingText: "Sentinel understood this as a",
-  understandingBoldFragment: "Data Usage + Cross-border Access",
-  confidencePercent: 88,
+  understandingBoldFragment: "Data Usage + Cross-border Access request",
+  confidencePercent: 78,
   cards: [
     {
       icon: Globe,
@@ -33,10 +42,54 @@ const FIXED_ANALYSIS_BUNDLE: EvidencePackBundle = {
     {
       icon: HelpCircle,
       label: "What I still need",
-      title: "One confirmation",
+      title: "Clarify AI model training usage",
       description:
         "Will this data be used to train an AI model, or only for analytics and reporting?",
       tone: "attention",
+    },
+  ],
+  evidenceItems: [
+    {
+      id: "data-catalog",
+      icon: Database,
+      label: "Data Catalog",
+      sublabel: "2 datasets identified",
+    },
+    {
+      id: "app-catalog",
+      icon: LayoutGrid,
+      label: "App Catalog",
+      sublabel: "1 application identified",
+    },
+  ],
+};
+
+// Final understanding (after second user message - full analysis)
+const FINAL_UNDERSTANDING: Partial<EvidencePackBundle> = {
+  understandingText: "Sentinel understood this as a",
+  understandingBoldFragment: "Data Usage + Cross-border Access request",
+  confidencePercent: 88,
+  cards: [
+    {
+      icon: Globe,
+      label: "Matched pattern",
+      title: "Client data analytics / reporting",
+      description:
+        "Route: EU + Singapore data for analytics only. Requires GDPR transfer assessment + Regional residency compliance (R2 category).",
+    },
+    {
+      icon: FileText,
+      label: "What I know",
+      title: "Complete intake details",
+      description:
+        "Source: EU + Singapore clients. Purpose: Analytics & reporting (no training). Storage: France-based. Regulatory: GDPR + cross-border rules.",
+    },
+    {
+      icon: Shield,
+      label: "Classification",
+      title: "Data residency: R2 Regional (EEA/GDPR)",
+      description:
+        "Data localization compliant. Risk: Medium-low. AI Authority review: Not required (analytics only).",
     },
   ],
   evidenceItems: [
@@ -56,35 +109,51 @@ const FIXED_ANALYSIS_BUNDLE: EvidencePackBundle = {
       id: "sgi",
       icon: Shield,
       label: "SGI",
-      sublabel: "Security classification",
+      sublabel: "Security classification (C2)",
     },
     {
       id: "datago",
       icon: Cloud,
       label: "DataGO",
-      sublabel: "Transfer assessment",
+      sublabel: "Transfer assessment ready",
     },
   ],
   nextStep: {
     icon: TrendingUp,
-    text: "Recommended next step: Prepare first-cut risk assessment",
+    text: "Recommended next step: Prepare first-cut risk assessment & governance routing",
     actionLabel: "Prepare",
   },
 };
 
-const GENERIC_ACKNOWLEDGEMENT = "Got it, I've noted that.";
+export function getFixedAnalysisBundle(userMessageCount: number = 0): EvidencePackBundle {
+  // Show initial understanding after first user message
+  // Show final understanding after second user message
+  const understanding =
+    userMessageCount >= 2 ? FINAL_UNDERSTANDING : INITIAL_UNDERSTANDING;
 
-const SCENARIO_MESSAGE =
-  "I want to use EU and Singapore client data in a French application for risk modelling and management reporting.";
-
-export function getFixedAnalysisBundle(): EvidencePackBundle {
-  return FIXED_ANALYSIS_BUNDLE;
+  return {
+    understandingText: understanding.understandingText || "",
+    understandingBoldFragment:
+      understanding.understandingBoldFragment || "",
+    confidencePercent: understanding.confidencePercent || 0,
+    cards: understanding.cards || [],
+    evidenceItems: understanding.evidenceItems || [],
+    nextStep: understanding.nextStep,
+  };
 }
 
-export function getGenericAcknowledgement(): string {
-  return GENERIC_ACKNOWLEDGEMENT;
+export function getClarifyingQuestion(userMessageCount: number): string | null {
+  // Only show question after first user message, hide after second
+  if (userMessageCount === 1) {
+    return CLARIFYING_QUESTION;
+  }
+  return null;
 }
 
 export function getScenarioMessage(): string {
   return SCENARIO_MESSAGE;
+}
+
+export function getGenericAcknowledgement(): string {
+  return "Got it, I've noted that.";
 }

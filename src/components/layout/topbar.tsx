@@ -52,7 +52,7 @@ export function Topbar() {
           </div>
         </div>
       )}
-      <div className="flex h-16 shrink-0 items-center justify-between px-8">
+      <div className="flex h-16 shrink-0 items-center px-8">
         {pathname !== "/" && (
           <div className="flex items-center text-sm text-gray-500">
             <span>{WORKSPACE_LABEL}</span>
@@ -60,7 +60,7 @@ export function Topbar() {
             <span className="font-bold text-gray-900">{pageTitle}</span>
           </div>
         )}
-        <div className="flex items-center gap-4 text-gray-600">
+        <div className="ml-auto flex items-center gap-4 text-gray-600">
           <MonitoringStatus />
           <button type="button" className="hover:text-black" aria-label="Notifications">
             <Bell className="h-5 w-5" />

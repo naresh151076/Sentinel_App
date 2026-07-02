@@ -37,5 +37,5 @@ export interface EvidencePackBundle {
   confidencePercent: number;
   cards: AnalysisCard[];
   evidenceItems: EvidenceItem[];
-  nextStep: NextStepRecommendation;
+  nextStep?: NextStepRecommendation;
 }

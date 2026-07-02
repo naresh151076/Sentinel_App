@@ -69,9 +69,9 @@ export function AskSentinelWorkspace() {
           </div>
         </div>
       ) : (
-        <div className="flex h-full flex-col overflow-hidden px-1 py-2 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
+        <div className="flex h-full flex-col overflow-hidden px-1 py-2 sm:px-4 sm:py-4 lg:px-6 lg:py-6">
           <div className="mx-auto w-full max-w-none sm:max-w-6xl h-full flex flex-col overflow-hidden">
-            <div className="flex h-full flex-col rounded-3xl border border-gray-100 bg-surface-main p-12 shadow-sm overflow-hidden">
+            <div className="flex h-full flex-col rounded-3xl border border-gray-100 bg-surface-main p-8 shadow-sm overflow-hidden">
               <ConversationView
                 messages={messages}
                 draft={draft}
