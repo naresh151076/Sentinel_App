@@ -207,6 +207,9 @@ const REQUEST_DETAIL_MOCK: RequestDetail = {
     { order: 1, role: "Data Owner", subtitle: "Retail Banking" },
     { order: 2, role: "Privacy Review", subtitle: "Data Protection" },
     { order: 3, role: "DUA Review", subtitle: "Data Usage" },
+    { order: 4, role: "Compliance Sign-off", subtitle: "Group Policy" },
+    { order: 5, role: "Requester Acceptance", subtitle: "Conditions acknowledgement" },
+    { order: 6, role: "Final Validation", subtitle: "DataGO closure" },
   ],
   nextStep: {
     text: "Submit this request to start the approval workflow.",

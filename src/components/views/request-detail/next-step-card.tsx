@@ -16,14 +16,14 @@ export function NextStepCard({
 }) {
   return (
     <Card className="flex h-full flex-col text-base">
-      <CardHeader>
+      <CardHeader className="pb-3">
         <CardTitle className="font-semibold">Next Step</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col pt-0">
-        <p className="text-base leading-relaxed text-muted-foreground">{text}</p>
+        <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
       </CardContent>
-      <CardFooter className="border-t-0 bg-transparent pt-0">
-        <Button className="h-11 w-full text-base font-semibold">
+      <CardFooter className="border-t-0 bg-transparent pt-2">
+        <Button className="h-10 w-full text-sm font-semibold">
           {actionLabel}
         </Button>
       </CardFooter>

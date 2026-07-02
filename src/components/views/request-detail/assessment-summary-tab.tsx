@@ -14,7 +14,7 @@ export function AssessmentSummaryTab({ request }: { request: RequestDetail }) {
         <AssessmentOutcomeCard outcome={request.outcome} />
         <RecommendationCard recommendation={request.recommendation} />
       </div>
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
         <KeyEvidenceCard items={request.evidence} />
         <ApprovalPathCard steps={request.approvalPath} />
         <NextStepCard

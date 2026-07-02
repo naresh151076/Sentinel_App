@@ -15,8 +15,8 @@ const LABEL_COLORS: Record<RiskLevel, string> = {
   critical: "text-destructive",
 };
 
-const RADIUS = 52;
-const STROKE = 9;
+const RADIUS = 54;
+const STROKE = 8;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 export function ConfidenceGauge({
@@ -31,7 +31,7 @@ export function ConfidenceGauge({
   const offset = CIRCUMFERENCE - (percent / 100) * CIRCUMFERENCE;
 
   return (
-    <div className="relative mx-auto h-40 w-40">
+    <div className="relative mx-auto h-48 w-48">
       <svg
         viewBox="0 0 120 120"
         className="h-full w-full -rotate-90"
@@ -57,8 +57,13 @@ export function ConfidenceGauge({
           strokeLinecap="round"
         />
       </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-        <span className={cn("text-2xl font-bold leading-tight", LABEL_COLORS[riskLevel])}>
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+        <span
+          className={cn(
+            "max-w-[5.5rem] text-base font-bold leading-tight",
+            LABEL_COLORS[riskLevel],
+          )}
+        >
           {riskLabel}
         </span>
         <span className="mt-1 text-sm font-medium text-muted-foreground">

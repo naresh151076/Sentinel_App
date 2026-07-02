@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import { HelpCircle } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -5,13 +9,28 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import type { Recommendation } from "@/models/governance";
+
+const VISIBLE_CONDITIONS_BY_DEFAULT = 2;
 
 export function RecommendationCard({
   recommendation,
 }: {
   recommendation: Recommendation;
 }) {
+  const [expanded, setExpanded] = useState(false);
+  const hasMoreConditions =
+    recommendation.conditions.length > VISIBLE_CONDITIONS_BY_DEFAULT;
+  const visibleConditions = expanded
+    ? recommendation.conditions
+    : recommendation.conditions.slice(0, VISIBLE_CONDITIONS_BY_DEFAULT);
+
   return (
     <Card className="h-full text-base">
       <CardHeader>
@@ -29,21 +48,34 @@ export function RecommendationCard({
 
         <div className="space-y-3">
           <p className="text-sm font-medium text-foreground">Key conditions</p>
-          <ul className="space-y-2.5">
-            {recommendation.conditions.map((condition, idx) => (
-              <li
-                key={idx}
-                className="rounded-lg border border-border bg-surface-main px-3 py-2.5"
-              >
-                <div className="text-sm font-medium text-foreground">
-                  {condition.label}
-                </div>
-                <div className="mt-0.5 text-sm text-muted-foreground">
-                  {condition.detail}
-                </div>
-              </li>
-            ))}
-          </ul>
+          <TooltipProvider>
+            <ul className="space-y-2.5">
+              {visibleConditions.map((condition, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-center justify-between gap-2 rounded-lg border border-border bg-surface-main px-3 py-2.5"
+                >
+                  <div className="text-sm font-medium text-foreground">
+                    {condition.label}
+                  </div>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <button
+                        type="button"
+                        className="shrink-0 text-muted-foreground transition-colors hover:text-foreground"
+                        aria-label={`Details for ${condition.label}`}
+                      >
+                        <HelpCircle className="h-4 w-4" />
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent side="top" className="max-w-xs">
+                      {condition.detail}
+                    </TooltipContent>
+                  </Tooltip>
+                </li>
+              ))}
+            </ul>
+          </TooltipProvider>
         </div>
 
         <p className="text-sm leading-relaxed text-muted-foreground">
@@ -51,11 +83,17 @@ export function RecommendationCard({
           {recommendation.rationale}
         </p>
       </CardContent>
-      <CardFooter className="mt-auto border-t-0 bg-transparent pt-0">
-        <a href="#" className="text-sm font-medium text-primary hover:underline">
-          View all conditions ({recommendation.conditionsCount})
-        </a>
-      </CardFooter>
+      {hasMoreConditions && (
+        <CardFooter className="mt-auto border-t-0 bg-transparent pt-0">
+          <button
+            type="button"
+            onClick={() => setExpanded((current) => !current)}
+            className="text-sm font-medium text-primary hover:underline"
+          >
+            {expanded ? "Hide" : "View details"}
+          </button>
+        </CardFooter>
+      )}
     </Card>
   );
 }
