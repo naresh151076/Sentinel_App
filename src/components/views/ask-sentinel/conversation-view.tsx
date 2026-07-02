@@ -9,7 +9,9 @@ import { ClarifyingQuestionBanner } from "@/components/views/ask-sentinel/clarif
 import {
   getFixedAnalysisBundle,
   getClarifyingQuestion,
+  getIntakePhaseIndex,
 } from "@/controllers/conversation.controller";
+import { IntakePhaseStepper } from "@/components/views/ask-sentinel/intake-phase-stepper";
 import type { ChatMessage } from "@/models/conversation";
 
 interface ConversationViewProps {
@@ -30,12 +32,18 @@ export function ConversationView({
 
   // Get analysis bundle appropriate for current turn
   const bundle = getFixedAnalysisBundle(userMessageCount);
+  const currentPhaseIndex = getIntakePhaseIndex(
+    userMessageCount,
+    Boolean(bundle.nextStep),
+  );
 
   // Get clarifying question (shown after first user message only)
   const clarifyingQuestion = getClarifyingQuestion(userMessageCount);
 
   return (
     <div className="flex h-full w-full flex-1 flex-col overflow-hidden">
+      <IntakePhaseStepper currentPhaseIndex={currentPhaseIndex} />
+
       <div className="mb-4 flex shrink-0 items-center justify-between">
         <span className="text-base font-bold text-gray-900">
           Conversation-led governance intake

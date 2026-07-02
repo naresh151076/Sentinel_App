@@ -125,6 +125,16 @@ const FINAL_UNDERSTANDING: Partial<EvidencePackBundle> = {
   },
 };
 
+export function getIntakePhaseIndex(
+  userMessageCount: number,
+  hasNextStep: boolean,
+): number {
+  if (userMessageCount <= 0) return 0;
+  if (userMessageCount === 1) return 1;
+  if (!hasNextStep) return 2;
+  return 3;
+}
+
 export function getFixedAnalysisBundle(userMessageCount: number = 0): EvidencePackBundle {
   // Show initial understanding after first user message
   // Show final understanding after second user message

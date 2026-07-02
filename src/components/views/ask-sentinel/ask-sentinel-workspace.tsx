@@ -56,13 +56,11 @@ export function AskSentinelWorkspace() {
       {messages.length === 0 ? (
         <div className="flex h-full flex-col overflow-y-auto gap-3 px-1 py-2 sm:gap-6 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
           <div className="mx-auto w-full max-w-none sm:max-w-6xl">
-            <div className="rounded-lg bg-black px-4 pt-10 pb-3 shadow-sm sm:rounded-3xl sm:px-6 sm:pt-16 sm:pb-6 lg:px-10 lg:pt-20 lg:pb-10">
-              <AskSentinelHero
-                draft={draft}
-                onDraftChange={setDraft}
-                onSubmit={handleSubmit}
-              />
-            </div>
+            <AskSentinelHero
+              draft={draft}
+              onDraftChange={setDraft}
+              onSubmit={handleSubmit}
+            />
             <div className="mt-3 sm:mt-6">
               <GovernanceGlance />
             </div>
