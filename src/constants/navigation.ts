@@ -18,14 +18,8 @@ export const NAV_GROUP_LABELS: Record<NavGroup, string> = {
 
 export const NAV_ITEMS: NavItem[] = [
   {
-    label: "Ask Sentinel",
-    href: ROUTES.home,
-    icon: MessageSquare,
-    group: "workspace",
-  },
-  {
     label: "New request",
-    href: ROUTES.newRequest,
+    href: ROUTES.home,
     icon: Plus,
     group: "workspace",
   },
@@ -51,18 +45,18 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Patterns library",
     href: ROUTES.patternsLibrary,
     icon: LayoutTemplate,
-    group: "knowledge",
+    group: "workspace",
   },
   {
     label: "Policies & controls",
     href: ROUTES.policiesAndControls,
     icon: ShieldCheck,
-    group: "knowledge",
+    group: "workspace",
   },
   {
     label: "Reports",
     href: ROUTES.reports,
     icon: BarChart3,
-    group: "knowledge",
+    group: "workspace",
   },
 ];
