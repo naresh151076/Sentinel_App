@@ -10,11 +10,10 @@ import {
 } from "@/components/ui/table";
 import { Progress } from "@/components/ui/progress";
 import { StatusBadge } from "@/components/views/status-badge";
+import type { RequestTableRow } from "@/models/governance";
 import { getMyRequestsTable } from "@/controllers/requests.controller";
 
-export function MyRequestsTable() {
-  const rows = getMyRequestsTable();
-
+export function GovernanceTable({ rows }: { rows: RequestTableRow[] }) {
   return (
     <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
       <Table>
@@ -79,4 +78,8 @@ export function MyRequestsTable() {
       </Table>
     </div>
   );
+}
+
+export function MyRequestsTable() {
+  return <GovernanceTable rows={getMyRequestsTable()} />;
 }

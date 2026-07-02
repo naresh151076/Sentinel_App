@@ -1,33 +1,41 @@
-import { ArrowRight } from "lucide-react";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import type { ApprovalStep } from "@/models/governance";
 
 export function ApprovalPathCard({ steps }: { steps: ApprovalStep[] }) {
   return (
-    <Card>
-      <CardContent className="pt-5">
-        <CardTitle className="mb-4 text-base font-semibold">Estimated Approval Path</CardTitle>
-        <div className="flex items-start gap-1.5">
+    <Card className="h-full text-base">
+      <CardHeader>
+        <CardTitle className="font-semibold">Estimated Approval Path</CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-1 flex-col pt-0">
+        <ol className="space-y-0">
           {steps.map((step, idx) => (
-            <div key={idx} className="flex-1 flex items-start gap-2 min-w-0">
-              <div className="flex flex-col items-center pt-0.5 shrink-0">
-                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
+            <li key={idx} className="flex gap-4">
+              <div className="flex flex-col items-center">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                   {step.order}
                 </div>
+                {idx < steps.length - 1 && (
+                  <div className="my-1 w-px flex-1 min-h-8 bg-border" />
+                )}
               </div>
-              <div className="min-w-0">
-                <div className="font-medium text-xs text-gray-900 break-words">
-                  {step.role}
+              <div className={idx < steps.length - 1 ? "pb-6 pt-1" : "pt-1"}>
+                <div className="font-medium text-foreground">{step.role}</div>
+                <div className="mt-0.5 text-sm text-muted-foreground">
+                  {step.subtitle}
                 </div>
-                <div className="text-xs text-gray-500 mt-0.5">{step.subtitle}</div>
               </div>
-              {idx < steps.length - 1 && (
-                <ArrowRight className="h-3 w-3 text-gray-400 mt-0.5 ml-0.5 shrink-0" />
-              )}
-            </div>
+            </li>
           ))}
-        </div>
-        <div className="mt-3 text-xs text-gray-500">~2-3 business days</div>
+        </ol>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Estimated turnaround: ~2–3 business days
+        </p>
       </CardContent>
     </Card>
   );

@@ -1,10 +1,5 @@
-import { PlaceholderScreen } from "@/components/views/placeholder-screen";
+import { MonitoringWorkspace } from "@/components/views/monitoring/monitoring-workspace";
 
 export default function MonitoringPage() {
-  return (
-    <PlaceholderScreen
-      title="Monitoring"
-      description="Screen design coming soon."
-    />
-  );
+  return <MonitoringWorkspace />;
 }

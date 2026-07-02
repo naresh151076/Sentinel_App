@@ -1,34 +1,45 @@
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { CircleCheck } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import type { EvidenceItem } from "@/models/conversation";
 
 export function KeyEvidenceCard({ items }: { items: EvidenceItem[] }) {
   return (
-    <Card>
-      <CardContent className="pt-6">
-        <CardTitle className="mb-4 text-lg font-semibold">Key Evidence (auto-collected)</CardTitle>
-        <div className="grid grid-cols-2 gap-3 mb-4">
+    <Card className="h-full text-base">
+      <CardHeader>
+        <CardTitle className="font-semibold">
+          Key Evidence{" "}
+          <span className="font-normal text-muted-foreground">(auto-collected)</span>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-1 flex-col pt-0">
+        <ul className="space-y-4">
           {items.map((item) => (
-            <div
+            <li
               key={item.id}
-              className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 transition-colors"
+              className="flex items-start gap-3 rounded-lg border border-border/60 bg-surface-main px-4 py-3"
             >
-              <item.icon className="h-5 w-5 shrink-0 text-gray-400 mt-0.5 flex-shrink-0" />
-              <div className="flex-1 min-w-0">
-                <div className="font-medium text-sm text-gray-900">
-                  {item.label}
+              <CircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-success" />
+              <div className="min-w-0 flex-1">
+                <div className="font-medium text-foreground">{item.label}</div>
+                <div className="mt-1 text-sm text-muted-foreground">
+                  {item.sublabel}
                 </div>
-                <div className="text-xs text-gray-500 mt-0.5">{item.sublabel}</div>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
-        <a
-          href="#"
-          className="text-sm font-medium text-primary hover:underline"
-        >
+        </ul>
+      </CardContent>
+      <CardFooter className="mt-auto border-t-0 bg-transparent pt-0">
+        <a href="#" className="text-sm font-medium text-primary hover:underline">
           View all evidence
         </a>
-      </CardContent>
+      </CardFooter>
     </Card>
   );
 }

@@ -11,13 +11,14 @@ import {
 } from "@/components/ui/select";
 import { getMyRequestsFilters } from "@/controllers/requests.controller";
 
-export function MyRequestsFilters({
+export function GovernanceFilters({
+  filters,
   onFilterChange,
 }: {
+  filters: { id: string; label: string }[];
   onFilterChange: (filterId: string) => void;
 }) {
   const [activeFilter, setActiveFilter] = useState("all");
-  const filters = getMyRequestsFilters();
 
   function handleFilterClick(filterId: string) {
     setActiveFilter(filterId);
@@ -38,6 +39,19 @@ export function MyRequestsFilters({
         </Button>
       ))}
     </div>
+  );
+}
+
+export function MyRequestsFilters({
+  onFilterChange,
+}: {
+  onFilterChange: (filterId: string) => void;
+}) {
+  return (
+    <GovernanceFilters
+      filters={getMyRequestsFilters()}
+      onFilterChange={onFilterChange}
+    />
   );
 }
 

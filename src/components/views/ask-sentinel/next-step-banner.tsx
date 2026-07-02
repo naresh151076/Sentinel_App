@@ -14,7 +14,7 @@ export function NextStepBanner({
       <p className="flex-1 text-base font-bold text-gray-900">
         {nextStep.text}
       </p>
-      <Button>{nextStep.actionLabel}</Button>
+      <Button className="h-11 px-6 text-base font-semibold">{nextStep.actionLabel}</Button>
     </div>
   );
 }

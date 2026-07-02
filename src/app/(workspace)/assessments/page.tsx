@@ -1,10 +1,5 @@
-import { PlaceholderScreen } from "@/components/views/placeholder-screen";
+import { MyAssessmentsWorkspace } from "@/components/views/my-assessments/my-assessments-workspace";
 
 export default function AssessmentsPage() {
-  return (
-    <PlaceholderScreen
-      title="Assessments"
-      description="Screen design coming soon."
-    />
-  );
+  return <MyAssessmentsWorkspace />;
 }

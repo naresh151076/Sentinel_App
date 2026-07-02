@@ -15,6 +15,7 @@ import type {
   GovernanceStat,
   RequestTableRow,
   RequestDetail,
+  RiskLevel,
 } from "@/models/governance";
 
 // TODO: replace mock data with real governance API calls once available.
@@ -159,6 +160,20 @@ const REQUEST_DETAIL_MOCK: RequestDetail = {
     description:
       "Subject to the approvals listed and adherence to the conditions.",
     conditionsCount: 2,
+    conditions: [
+      {
+        label: "Marketing consent retained",
+        detail:
+          "Loyalty communications limited to opted-in retail customers only.",
+      },
+      {
+        label: "EU residency enforced",
+        detail:
+          "Processing and storage remain within approved FR/EU hosting boundaries.",
+      },
+    ],
+    rationale:
+      "Pattern match, metadata completeness, and rule evaluation support a low-risk path. No blocking controls were flagged by Sentinel.",
   },
   evidence: [
     { id: "1", icon: Shield, label: "Dataset Classification", sublabel: "C2" },
@@ -220,9 +235,35 @@ export function getMyRequestsTable(): RequestTableRow[] {
   return MY_REQUESTS_TABLE;
 }
 
+function riskLabelToLevel(label: string): RiskLevel {
+  const normalized = label.toLowerCase();
+  if (normalized === "low") return "low";
+  if (normalized === "medium") return "medium";
+  if (normalized === "high") return "high";
+  return "critical";
+}
+
+function buildRequestDetailFromRow(row: RequestTableRow): RequestDetail {
+  return {
+    ...REQUEST_DETAIL_MOCK,
+    id: row.id,
+    code: row.code,
+    title: row.title,
+    status: row.status,
+    lastUpdatedLabel: `Updated: ${row.updated}`,
+    outcome: {
+      riskLevel: riskLabelToLevel(row.risk.label),
+      riskLabel: `${row.risk.label} Risk`,
+      confidencePercent: row.aiConfidence,
+      summary: REQUEST_DETAIL_MOCK.outcome.summary,
+    },
+  };
+}
+
 export function getRequestDetail(id: string): RequestDetail | undefined {
-  if (id === REQUEST_DETAIL_MOCK.id) {
-    return REQUEST_DETAIL_MOCK;
+  const row = MY_REQUESTS_TABLE.find((entry) => entry.id === id);
+  if (row) {
+    return buildRequestDetailFromRow(row);
   }
   return undefined;
 }

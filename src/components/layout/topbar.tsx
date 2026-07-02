@@ -2,10 +2,16 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Bell, HelpCircle, AlertTriangle, X } from "lucide-react";
+import { Bell, HelpCircle, AlertTriangle, X, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { WORKSPACE_LABEL } from "@/constants/copy";
-import { getPageTitle } from "@/controllers/navigation.controller";
+import { ROUTES } from "@/constants/routes";
+import {
+  getPageTitle,
+  isAssessmentDetailPage,
+  isRequestDetailPage,
+  shouldShowTopbarBreadcrumb,
+} from "@/controllers/navigation.controller";
 import { MonitoringStatus } from "@/components/layout/monitoring-status";
 import { getAttentionItems } from "@/controllers/governance.controller";
 
@@ -14,6 +20,8 @@ export function Topbar() {
   const pageTitle = getPageTitle(pathname);
   const attentionItems = getAttentionItems();
   const [isAlertVisible, setIsAlertVisible] = useState(true);
+  const showRequestDetailBack = isRequestDetailPage(pathname);
+  const showAssessmentDetailBack = isAssessmentDetailPage(pathname);
 
   return (
     <header className="flex flex-col shrink-0 bg-surface-low">
@@ -53,15 +61,29 @@ export function Topbar() {
         </div>
       )}
       <div className="flex h-16 shrink-0 items-center px-8">
-        {pathname !== "/" &&
-         pathname !== "/requests" &&
-         !pathname.startsWith("/requests/") && (
-          <div className="flex items-center text-sm text-gray-500">
+        {showRequestDetailBack ? (
+          <Link
+            href={ROUTES.myRequests}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-primary"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            Back to My Requests
+          </Link>
+        ) : showAssessmentDetailBack ? (
+          <Link
+            href={ROUTES.assessments}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-primary"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            Back to My Assessments
+          </Link>
+        ) : shouldShowTopbarBreadcrumb(pathname) ? (
+          <div className="flex items-center text-sm text-muted-foreground">
             <span>{WORKSPACE_LABEL}</span>
             <span className="mx-2">/</span>
-            <span className="font-bold text-gray-900">{pageTitle}</span>
+            <span className="font-bold text-foreground">{pageTitle}</span>
           </div>
-        )}
+        ) : null}
         <div className="ml-auto flex items-center gap-4 text-gray-600">
           <MonitoringStatus />
           <button type="button" className="hover:text-black" aria-label="Notifications">

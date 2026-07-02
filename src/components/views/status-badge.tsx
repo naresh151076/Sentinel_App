@@ -2,11 +2,11 @@ import { cn } from "@/lib/utils";
 import type { RequestBadgeVariant } from "@/models/governance";
 
 const VARIANT_CLASSES: Record<RequestBadgeVariant, string> = {
-  critical: "bg-red-100 text-red-800",
-  warning: "bg-amber-100 text-amber-800",
-  success: "bg-green-100 text-green-800",
-  neutral: "bg-gray-100 text-gray-800",
-  dark: "bg-gray-900 text-white",
+  critical: "bg-destructive/10 text-destructive",
+  warning: "bg-warning-muted text-warning-foreground",
+  success: "bg-success-muted text-success-muted-foreground",
+  neutral: "bg-muted text-muted-foreground",
+  dark: "bg-foreground text-background",
 };
 
 export function StatusBadge({
@@ -19,7 +19,7 @@ export function StatusBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded px-2.5 py-1 text-xs font-bold",
+        "inline-flex items-center rounded-md px-2 py-0.5 text-xs font-semibold",
         VARIANT_CLASSES[variant],
       )}
     >

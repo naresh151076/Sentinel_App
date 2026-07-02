@@ -9,7 +9,7 @@ export function RequestDetailWorkspace({
 }) {
   return (
     <main className="flex flex-1 flex-col overflow-y-auto bg-surface-main">
-      <div className="flex-1 space-y-4 p-8">
+      <div className="flex-1 space-y-8 p-8">
         <RequestDetailHeader request={request} />
         <RequestDetailTabs request={request} />
       </div>

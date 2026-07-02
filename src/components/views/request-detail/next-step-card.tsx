@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export function NextStepCard({
   text,
@@ -9,12 +15,18 @@ export function NextStepCard({
   actionLabel: string;
 }) {
   return (
-    <Card className="flex flex-col">
-      <CardContent className="pt-5 flex flex-col flex-1">
-        <CardTitle className="mb-3 text-base font-semibold">Next Step</CardTitle>
-        <div className="text-sm text-gray-700 mb-5 flex-1">{text}</div>
-        <Button className="w-full text-sm">{actionLabel}</Button>
+    <Card className="flex h-full flex-col text-base">
+      <CardHeader>
+        <CardTitle className="font-semibold">Next Step</CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-1 flex-col pt-0">
+        <p className="text-base leading-relaxed text-muted-foreground">{text}</p>
       </CardContent>
+      <CardFooter className="border-t-0 bg-transparent pt-0">
+        <Button className="h-11 w-full text-base font-semibold">
+          {actionLabel}
+        </Button>
+      </CardFooter>
     </Card>
   );
 }

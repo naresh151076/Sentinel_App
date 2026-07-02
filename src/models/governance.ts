@@ -73,10 +73,17 @@ export interface AssessmentOutcome {
   summary: string;
 }
 
+export interface RecommendationCondition {
+  label: string;
+  detail: string;
+}
+
 export interface Recommendation {
   title: string;
   description: string;
   conditionsCount: number;
+  conditions: RecommendationCondition[];
+  rationale: string;
 }
 
 export interface ApprovalStep {

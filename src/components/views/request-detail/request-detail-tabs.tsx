@@ -12,24 +12,27 @@ const TABS = [
 
 export function RequestDetailTabs({ request }: { request: RequestDetail }) {
   return (
-    <Tabs defaultValue="assessment-summary" className="w-full">
-      <TabsList variant="line" className="border-b border-gray-200 w-full justify-start gap-8">
+    <Tabs defaultValue="assessment-summary" className="w-full gap-0">
+      <TabsList
+        variant="line"
+        className="h-auto w-full justify-start gap-8 border-0"
+      >
         {TABS.map((tab) => (
-          <TabsTrigger key={tab.id} value={tab.id} className="text-sm px-0 py-2">
+          <TabsTrigger key={tab.id} value={tab.id}>
             {tab.label}
           </TabsTrigger>
         ))}
       </TabsList>
 
-      <TabsContent value="assessment-summary" className="pt-5">
+      <TabsContent value="assessment-summary" className="mt-8">
         <AssessmentSummaryTab request={request} />
       </TabsContent>
 
       {["required-approvals", "applicable-policies", "evidence", "history-changes"].map(
         (tabId) => (
-          <TabsContent key={tabId} value={tabId} className="pt-6">
-            <div className="text-center py-12">
-              <p className="text-gray-500">Coming soon</p>
+          <TabsContent key={tabId} value={tabId} className="mt-8">
+            <div className="py-12 text-center">
+              <p className="text-base text-muted-foreground">Coming soon</p>
             </div>
           </TabsContent>
         ),

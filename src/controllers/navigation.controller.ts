@@ -1,4 +1,5 @@
 import { NAV_GROUP_LABELS, NAV_ITEMS } from "@/constants/navigation";
+import { ROUTES } from "@/constants/routes";
 import type { NavGroup, NavItem } from "@/models/navigation";
 
 export function getNavItems(): NavItem[] {
@@ -31,4 +32,23 @@ export function isActiveRoute(pathname: string, href: string): boolean {
 
 export function getPageTitle(pathname: string): string {
   return getActiveNavItem(pathname)?.label ?? "Sentinel";
+}
+
+export function isRequestDetailPage(pathname: string): boolean {
+  const match = pathname.match(/^\/requests\/([^/]+)$/);
+  return Boolean(match && match[1] !== "new");
+}
+
+export function isAssessmentDetailPage(pathname: string): boolean {
+  return /^\/assessments\/([^/]+)$/.test(pathname);
+}
+
+export function shouldShowTopbarBreadcrumb(pathname: string): boolean {
+  if (pathname === "/") return false;
+  if (pathname === ROUTES.myRequests) return false;
+  if (pathname === ROUTES.assessments) return false;
+  if (pathname === ROUTES.monitoring) return false;
+  if (pathname.startsWith("/requests/")) return false;
+  if (pathname.startsWith("/assessments/")) return false;
+  return true;
 }
