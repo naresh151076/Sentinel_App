@@ -95,10 +95,10 @@ export function IntakeInputBar({
         </div>
         <button
           type="submit"
-          className="rounded-full bg-brand-red p-2.5 text-white transition-colors hover:bg-red-700"
+          className="rounded-full bg-brand-red p-3.5 text-white transition-colors hover:bg-red-700 active:scale-95"
           aria-label="Send"
         >
-          <Send className="h-4 w-4" />
+          <Send className="h-5 w-5" />
         </button>
       </div>
     </form>
