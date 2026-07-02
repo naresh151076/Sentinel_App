@@ -28,7 +28,7 @@ export function AskSentinelHero({
           onValueChange={onDraftChange}
           onSubmit={onSubmit}
           placeholder="e.g. I want to use customer purchase data for a loyalty programme in France"
-          variant="dark"
+          variant="hero"
         />
       </div>
       <div>
