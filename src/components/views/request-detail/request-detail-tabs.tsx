@@ -13,15 +13,15 @@ const TABS = [
 export function RequestDetailTabs({ request }: { request: RequestDetail }) {
   return (
     <Tabs defaultValue="assessment-summary" className="w-full">
-      <TabsList variant="line" className="border-b border-gray-200 w-full justify-start">
+      <TabsList variant="line" className="border-b border-gray-200 w-full justify-start gap-8">
         {TABS.map((tab) => (
-          <TabsTrigger key={tab.id} value={tab.id}>
+          <TabsTrigger key={tab.id} value={tab.id} className="text-sm px-0 py-2">
             {tab.label}
           </TabsTrigger>
         ))}
       </TabsList>
 
-      <TabsContent value="assessment-summary" className="pt-6">
+      <TabsContent value="assessment-summary" className="pt-5">
         <AssessmentSummaryTab request={request} />
       </TabsContent>
 

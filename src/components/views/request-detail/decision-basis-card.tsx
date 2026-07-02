@@ -5,15 +5,15 @@ import type { DecisionBasisItem } from "@/models/governance";
 export function DecisionBasisCard({ items }: { items: DecisionBasisItem[] }) {
   return (
     <Card>
-      <CardContent className="pt-6">
-        <CardTitle className="mb-4 text-base">Decision Basis</CardTitle>
+      <CardContent className="pt-5">
+        <CardTitle className="mb-4 text-base font-semibold">Decision Basis</CardTitle>
         <div className="space-y-3">
           {items.map((item, idx) => (
             <div key={idx} className="flex items-start gap-3">
-              <CheckCircle2 className="h-5 w-5 shrink-0 text-green-600 mt-0.5" />
+              <CheckCircle2 className="h-4 w-4 shrink-0 text-green-600 mt-0.5" />
               <div className="flex-1 min-w-0">
-                <div className="font-medium text-gray-900">{item.label}</div>
-                <div className="text-sm text-gray-600">{item.detail}</div>
+                <div className="font-medium text-sm text-gray-900">{item.label}</div>
+                <div className="text-xs text-gray-600">{item.detail}</div>
               </div>
             </div>
           ))}
@@ -21,7 +21,7 @@ export function DecisionBasisCard({ items }: { items: DecisionBasisItem[] }) {
         <div className="mt-4">
           <a
             href="#"
-            className="text-sm font-medium text-primary hover:underline"
+            className="text-xs font-medium text-primary hover:underline"
           >
             View details
           </a>

@@ -94,7 +94,11 @@ export interface RequestDetail {
   id: string;
   code: string;
   title: string;
+  type: string;
   createdLabel: string;
+  lastUpdatedLabel: string;
+  owner: string;
+  currentApprovalStage: string;
   status: RequestBadge;
   decisionBasis: DecisionBasisItem[];
   outcome: AssessmentOutcome;

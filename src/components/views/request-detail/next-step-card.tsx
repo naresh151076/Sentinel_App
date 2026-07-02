@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 
 export function NextStepCard({
   text,
@@ -9,10 +9,11 @@ export function NextStepCard({
   actionLabel: string;
 }) {
   return (
-    <Card>
-      <CardContent className="pt-6">
-        <div className="text-sm text-gray-700 mb-4">{text}</div>
-        <Button className="w-full">{actionLabel}</Button>
+    <Card className="flex flex-col">
+      <CardContent className="pt-5 flex flex-col flex-1">
+        <CardTitle className="mb-3 text-base font-semibold">Next Step</CardTitle>
+        <div className="text-sm text-gray-700 mb-5 flex-1">{text}</div>
+        <Button className="w-full text-sm">{actionLabel}</Button>
       </CardContent>
     </Card>
   );

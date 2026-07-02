@@ -27,27 +27,27 @@ export function AssessmentOutcomeCard({
 
   return (
     <Card>
-      <CardContent className="pt-6">
-        <CardTitle className="mb-6 text-base">Assessment Outcome</CardTitle>
-        <div className="flex flex-col items-center gap-4">
+      <CardContent className="pt-5">
+        <CardTitle className="mb-4 text-base font-semibold">Assessment Outcome</CardTitle>
+        <div className="flex flex-col items-center gap-3">
           <div
             className={cn(
-              "flex h-16 w-16 items-center justify-center rounded-full",
+              "flex h-14 w-14 items-center justify-center rounded-full",
               colors.bg,
             )}
           >
-            <Shield className={cn("h-8 w-8", colors.text)} />
+            <Shield className={cn("h-7 w-7", colors.text)} />
           </div>
           <div className="text-center">
             <div className={cn("text-2xl font-bold", colors.text)}>
               {outcome.riskLabel}
             </div>
-            <div className="mt-1 text-sm text-gray-600">
+            <div className="mt-1 text-xs text-gray-600">
               Confidence: {outcome.confidencePercent}%
             </div>
           </div>
         </div>
-        <p className="mt-4 text-center text-sm text-gray-600">
+        <p className="mt-4 text-center text-xs text-gray-600">
           {outcome.summary}
         </p>
       </CardContent>

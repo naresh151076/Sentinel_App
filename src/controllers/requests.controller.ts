@@ -132,7 +132,11 @@ const REQUEST_DETAIL_MOCK: RequestDetail = {
   id: "loyalty-model-fr-retail",
   code: "REQ-2026-0617-00123",
   title: "Loyalty Program – France",
+  type: "Data Usage Approval",
   createdLabel: "Created: Jun 17, 2026 10:15 AM",
+  lastUpdatedLabel: "Updated: Today, 09:14 AM",
+  owner: "Sarah Chen",
+  currentApprovalStage: "Privacy Review",
   status: { label: "In Progress", variant: "warning" },
   decisionBasis: [
     { label: "Matched Pattern", detail: "Data Usage - Marketing / Loyalty" },

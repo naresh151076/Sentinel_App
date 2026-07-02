@@ -53,7 +53,9 @@ export function Topbar() {
         </div>
       )}
       <div className="flex h-16 shrink-0 items-center px-8">
-        {pathname !== "/" && (
+        {pathname !== "/" &&
+         pathname !== "/requests" &&
+         !pathname.startsWith("/requests/") && (
           <div className="flex items-center text-sm text-gray-500">
             <span>{WORKSPACE_LABEL}</span>
             <span className="mx-2">/</span>
