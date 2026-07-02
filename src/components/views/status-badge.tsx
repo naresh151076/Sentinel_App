@@ -3,6 +3,8 @@ import type { RequestBadgeVariant } from "@/models/governance";
 
 const VARIANT_CLASSES: Record<RequestBadgeVariant, string> = {
   critical: "bg-red-100 text-red-800",
+  warning: "bg-amber-100 text-amber-800",
+  success: "bg-green-100 text-green-800",
   neutral: "bg-gray-100 text-gray-800",
   dark: "bg-gray-900 text-white",
 };

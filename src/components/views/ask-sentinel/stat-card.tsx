@@ -6,7 +6,7 @@ export function StatCard({ stat }: { stat: GovernanceStat }) {
     <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
       <div
         className={cn(
-          "mb-3 text-5xl font-bold",
+          "mb-3 text-5xl font-semibold",
           stat.emphasis && "text-brand-red",
         )}
       >

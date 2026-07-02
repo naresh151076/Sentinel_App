@@ -85,8 +85,7 @@ export function getAttentionItems(): AttentionItem[] {
 }
 
 export function getActiveApprovalsCount(): number {
-  return (
-    GOVERNANCE_STATS.find((stat) => stat.id === "active-approvals")?.value ??
-    0
-  );
+  const value = GOVERNANCE_STATS.find((stat) => stat.id === "active-approvals")
+    ?.value;
+  return typeof value === "number" ? value : 0;
 }

@@ -1,10 +1,5 @@
-import { PlaceholderScreen } from "@/components/views/placeholder-screen";
+import { MyRequestsWorkspace } from "@/components/views/my-requests/my-requests-workspace";
 
 export default function MyRequestsPage() {
-  return (
-    <PlaceholderScreen
-      title="My requests"
-      description="Screen design coming soon."
-    />
-  );
+  return <MyRequestsWorkspace />;
 }

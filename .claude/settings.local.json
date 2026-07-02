@@ -22,7 +22,8 @@
       "Bash(ps -p 5911 -o pid,ppid,command)",
       "Bash(kill 7062 7063)",
       "Bash(curl -sS -m 5 -o /dev/null -w \"%{http_code}\\\\n\" https://fonts.googleapis.com/css2)",
-      "Bash(curl -s http://localhost:3000)"
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(xargs -I{} sh -c 'echo \"=== {} ===\"; cat {}')"
     ]
   }
 }
