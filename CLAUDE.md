@@ -1,2 +1,0 @@
-@AGENTS.md
-@DESIGN_SYSTEM.md
