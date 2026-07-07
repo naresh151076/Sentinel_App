@@ -1,3 +1,3 @@
 :HL["/Sentinel_App/_next/static/chunks/10_krv1be_l-y.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"(workspace)","param":null,"prefetchHints":0,"slots":{"children":{"name":"assessments","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"hBHOMD0Krf36ZuMybq8ib"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"(workspace)","param":null,"prefetchHints":0,"slots":{"children":{"name":"assessments","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"gNIqY36sY07LbcT1G6xsz"}
